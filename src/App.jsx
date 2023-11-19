@@ -1,9 +1,8 @@
-import Navbar from "./components/Navbar";
-
 const App = () => {
+  let x = 'JackieJr18';
   return (
     <div>
-      <Navbar/>
+      {x}
     </div>
   )
 }
