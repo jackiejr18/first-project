@@ -1,4 +1,4 @@
-import { useRef,useState } from "react"
+import Todo from "./Components/Todo"
 
 const App = () => {
 
@@ -6,7 +6,7 @@ const App = () => {
 
   return (
     <div>
-      
+      <Todo/>
     </div>
   )
 }
