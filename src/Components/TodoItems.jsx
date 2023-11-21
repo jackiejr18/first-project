@@ -5,9 +5,15 @@ import cross from './Assets/cross.png';
 
 const TodoItems = ({no,display,text, setTodos}) => {
 
+  const deleteTodo = (no) => {
+    let data = JSON.parse(localStorage.getItem('todos'));
+    data = data.filter((todo)=> todo.no!==no);
+    setTodos(data); 
+  }
+
   const toggle = (no) => {
     let data = JSON.parse(localStorage.getItem('todos'));
-    for(let i = 0;i <data.length;i++)
+    for(let i = 0;i < data.length;i++)
     {
       if (data[i].no===no) {
         if (data[i].display==='') {
@@ -29,7 +35,7 @@ const TodoItems = ({no,display,text, setTodos}) => {
         {display===''?<img src={not_tick}/>:<img src={tick}/>}
         <div className='todoitems-text'>{text}</div>
       </div>
-      <img className='todoitems-cross-icon' src={cross}/>
+      <img className='todoitems-cross-icon' onClick={()=>{deleteTodo(no)}} src={cross}/>
     </div>
   )
 }
